@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Enable dark mode via class strategy */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-primary: #f59e0b;
+  --color-primary-light: #fbbf24;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Toast animations */
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-enter-active {
+  animation: slide-in 0.3s ease-out;
+}
+
+.toast-leave-active {
+  animation: slide-in 0.3s ease-in reverse;
+}

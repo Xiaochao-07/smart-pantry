@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-amber-50: #f8fafc;
+  --color-amber-100: #f1f5f9;
+  --color-amber-200: #e2e8f0;
+  --color-amber-300: #94a3b8;
+  --color-amber-400: #64748b;
+  --color-amber-500: #475569;
+  --color-amber-600: #334155;
+  --color-amber-700: #1e293b;
+  --color-amber-800: #0f172a;
+  --color-amber-900: #0f172a;
+  --color-accent: #059669;
+  --color-accent-light: #34d399;
+}
+
+body {
+  background-color: var(--color-amber-100, #f1f5f9);
+}
+.dark body { background-color: #0f172a; }
+
+.cozy-card {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.cozy-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.warm-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-img-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.kitchen-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  border: none;
+  margin: 16px 0;
+}
+
+.img-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.25s ease-out;
+}
